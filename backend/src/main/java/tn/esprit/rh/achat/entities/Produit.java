@@ -47,9 +47,19 @@ public class Produit implements Serializable {
 	@ManyToOne
 	@JsonIgnore
 	private CategorieProduit categorieProduit;
-	
 
 
-	
+	@Override
+	public String toString() {
+		return "Produit{" +
+				"idProduit=" + idProduit +
+				", libelle=" + libelleProduit +
+				", prix=" + prix +
+				'}';
+	}
+
+	public Long getIdProduit() {
+		return idProduit;
+	}
 
 }
