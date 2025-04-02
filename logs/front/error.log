@@ -1,0 +1,133 @@
+2025/04/02 03:40:51 [notice] 1#1: using the "epoll" event method
+2025/04/02 03:40:51 [notice] 1#1: nginx/1.27.4
+2025/04/02 03:40:51 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+2025/04/02 03:40:51 [notice] 1#1: OS: Linux 5.15.167.4-microsoft-standard-WSL2
+2025/04/02 03:40:51 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/02 03:40:51 [notice] 1#1: start worker processes
+2025/04/02 03:40:51 [notice] 1#1: start worker process 29
+2025/04/02 03:40:51 [notice] 1#1: start worker process 30
+2025/04/02 03:40:51 [notice] 1#1: start worker process 31
+2025/04/02 03:40:51 [notice] 1#1: start worker process 32
+2025/04/02 03:49:48 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/02 03:49:48 [notice] 30#30: gracefully shutting down
+2025/04/02 03:49:48 [notice] 29#29: gracefully shutting down
+2025/04/02 03:49:48 [notice] 32#32: gracefully shutting down
+2025/04/02 03:49:48 [notice] 32#32: exiting
+2025/04/02 03:49:48 [notice] 31#31: gracefully shutting down
+2025/04/02 03:49:48 [notice] 32#32: exit
+2025/04/02 03:49:48 [notice] 30#30: exiting
+2025/04/02 03:49:48 [notice] 29#29: exiting
+2025/04/02 03:49:48 [notice] 31#31: exiting
+2025/04/02 03:49:48 [notice] 30#30: exit
+2025/04/02 03:49:48 [notice] 29#29: exit
+2025/04/02 03:49:48 [notice] 31#31: exit
+2025/04/02 03:49:48 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/04/02 03:49:48 [notice] 1#1: worker process 29 exited with code 0
+2025/04/02 03:49:48 [notice] 1#1: worker process 30 exited with code 0
+2025/04/02 03:49:48 [notice] 1#1: worker process 31 exited with code 0
+2025/04/02 03:49:48 [notice] 1#1: worker process 32 exited with code 0
+2025/04/02 03:49:48 [notice] 1#1: exit
+2025/04/02 03:55:00 [notice] 1#1: using the "epoll" event method
+2025/04/02 03:55:00 [notice] 1#1: nginx/1.27.4
+2025/04/02 03:55:00 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+2025/04/02 03:55:00 [notice] 1#1: OS: Linux 5.15.167.4-microsoft-standard-WSL2
+2025/04/02 03:55:00 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/02 03:55:00 [notice] 1#1: start worker processes
+2025/04/02 03:55:00 [notice] 1#1: start worker process 30
+2025/04/02 03:55:00 [notice] 1#1: start worker process 31
+2025/04/02 03:55:00 [notice] 1#1: start worker process 32
+2025/04/02 03:55:00 [notice] 1#1: start worker process 33
+2025/04/02 03:58:43 [error] 33#33: *3 open() "/usr/share/nginx/html/product" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /product HTTP/1.1", host: "localhost:8082"
+2025/04/02 04:19:19 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/02 04:19:19 [notice] 30#30: gracefully shutting down
+2025/04/02 04:19:19 [notice] 31#31: gracefully shutting down
+2025/04/02 04:19:19 [notice] 33#33: gracefully shutting down
+2025/04/02 04:19:19 [notice] 32#32: gracefully shutting down
+2025/04/02 04:19:19 [notice] 30#30: exiting
+2025/04/02 04:19:19 [notice] 31#31: exiting
+2025/04/02 04:19:19 [notice] 30#30: exit
+2025/04/02 04:19:19 [notice] 33#33: exiting
+2025/04/02 04:19:19 [notice] 32#32: exiting
+2025/04/02 04:19:19 [notice] 31#31: exit
+2025/04/02 04:19:19 [notice] 33#33: exit
+2025/04/02 04:19:19 [notice] 32#32: exit
+2025/04/02 04:19:19 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2025/04/02 04:19:19 [notice] 1#1: worker process 32 exited with code 0
+2025/04/02 04:19:19 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/02 04:19:19 [notice] 1#1: signal 17 (SIGCHLD) received from 30
+2025/04/02 04:19:19 [notice] 1#1: worker process 30 exited with code 0
+2025/04/02 04:19:19 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/02 04:19:19 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2025/04/02 04:19:19 [notice] 1#1: worker process 31 exited with code 0
+2025/04/02 04:19:19 [notice] 1#1: worker process 33 exited with code 0
+2025/04/02 04:19:19 [notice] 1#1: exit
+2025/04/02 04:24:08 [notice] 1#1: using the "epoll" event method
+2025/04/02 04:24:08 [notice] 1#1: nginx/1.27.4
+2025/04/02 04:24:08 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+2025/04/02 04:24:08 [notice] 1#1: OS: Linux 5.15.167.4-microsoft-standard-WSL2
+2025/04/02 04:24:08 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/02 04:24:08 [notice] 1#1: start worker processes
+2025/04/02 04:24:08 [notice] 1#1: start worker process 29
+2025/04/02 04:24:08 [notice] 1#1: start worker process 30
+2025/04/02 04:24:08 [notice] 1#1: start worker process 31
+2025/04/02 04:24:08 [notice] 1#1: start worker process 32
+2025/04/02 04:25:12 [error] 29#29: *1 open() "/usr/share/nginx/html/product" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /product HTTP/1.1", host: "localhost:8082"
+2025/04/02 04:25:51 [error] 29#29: *1 open() "/usr/share/nginx/html/product" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /product HTTP/1.1", host: "localhost:8082"
+2025/04/02 04:27:40 [error] 30#30: *3 open() "/usr/share/nginx/html/product" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /product HTTP/1.1", host: "localhost:8082"
+2025/04/02 04:32:01 [error] 29#29: *6 open() "/usr/share/nginx/html/product" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /product HTTP/1.1", host: "localhost:8082"
+2025/04/02 04:33:25 [error] 29#29: *8 open() "/usr/share/nginx/html/product" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /product HTTP/1.1", host: "localhost:8082"
+2025/04/02 04:42:06 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/02 04:42:06 [notice] 29#29: gracefully shutting down
+2025/04/02 04:42:06 [notice] 31#31: gracefully shutting down
+2025/04/02 04:42:06 [notice] 32#32: gracefully shutting down
+2025/04/02 04:42:06 [notice] 30#30: gracefully shutting down
+2025/04/02 04:42:06 [notice] 29#29: exiting
+2025/04/02 04:42:06 [notice] 31#31: exiting
+2025/04/02 04:42:06 [notice] 32#32: exiting
+2025/04/02 04:42:06 [notice] 30#30: exiting
+2025/04/02 04:42:06 [notice] 29#29: exit
+2025/04/02 04:42:06 [notice] 31#31: exit
+2025/04/02 04:42:06 [notice] 32#32: exit
+2025/04/02 04:42:06 [notice] 30#30: exit
+2025/04/02 04:42:06 [notice] 1#1: signal 17 (SIGCHLD) received from 29
+2025/04/02 04:42:06 [notice] 1#1: worker process 29 exited with code 0
+2025/04/02 04:42:06 [notice] 1#1: signal 29 (SIGIO) received
+2025/04/02 04:42:06 [notice] 1#1: signal 17 (SIGCHLD) received from 32
+2025/04/02 04:42:06 [notice] 1#1: worker process 30 exited with code 0
+2025/04/02 04:42:06 [notice] 1#1: worker process 31 exited with code 0
+2025/04/02 04:42:06 [notice] 1#1: worker process 32 exited with code 0
+2025/04/02 04:42:06 [notice] 1#1: exit
+2025/04/02 04:53:33 [notice] 1#1: using the "epoll" event method
+2025/04/02 04:53:33 [notice] 1#1: nginx/1.27.4
+2025/04/02 04:53:33 [notice] 1#1: built by gcc 14.2.0 (Alpine 14.2.0) 
+2025/04/02 04:53:33 [notice] 1#1: OS: Linux 5.15.167.4-microsoft-standard-WSL2
+2025/04/02 04:53:33 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2025/04/02 04:53:33 [notice] 1#1: start worker processes
+2025/04/02 04:53:33 [notice] 1#1: start worker process 29
+2025/04/02 04:53:33 [notice] 1#1: start worker process 30
+2025/04/02 04:53:33 [notice] 1#1: start worker process 31
+2025/04/02 04:53:33 [notice] 1#1: start worker process 32
+2025/04/02 04:54:16 [error] 29#29: *1 open() "/usr/share/nginx/html/product" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /product HTTP/1.1", host: "localhost:8082"
+2025/04/02 04:55:19 [error] 29#29: *1 open() "/usr/share/nginx/html/product" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /product HTTP/1.1", host: "localhost:8082"
+2025/04/02 05:02:28 [error] 32#32: *4 open() "/usr/share/nginx/html/product" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /product HTTP/1.1", host: "localhost:8082"
+2025/04/02 05:16:17 [error] 29#29: *6 open() "/usr/share/nginx/html/product" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /product HTTP/1.1", host: "localhost:8082"
+2025/04/02 17:26:56 [error] 29#29: *9 open() "/usr/share/nginx/html/product" failed (2: No such file or directory), client: 172.19.0.1, server: localhost, request: "GET /product HTTP/1.1", host: "localhost:8082"
+2025/04/02 17:49:50 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2025/04/02 17:49:50 [notice] 29#29: gracefully shutting down
+2025/04/02 17:49:50 [notice] 32#32: gracefully shutting down
+2025/04/02 17:49:50 [notice] 30#30: gracefully shutting down
+2025/04/02 17:49:50 [notice] 31#31: gracefully shutting down
+2025/04/02 17:49:50 [notice] 29#29: exiting
+2025/04/02 17:49:50 [notice] 32#32: exiting
+2025/04/02 17:49:50 [notice] 30#30: exiting
+2025/04/02 17:49:50 [notice] 31#31: exiting
+2025/04/02 17:49:50 [notice] 29#29: exit
+2025/04/02 17:49:50 [notice] 31#31: exit
+2025/04/02 17:49:50 [notice] 30#30: exit
+2025/04/02 17:49:50 [notice] 32#32: exit
+2025/04/02 17:49:50 [notice] 1#1: signal 17 (SIGCHLD) received from 31
+2025/04/02 17:49:50 [notice] 1#1: worker process 29 exited with code 0
+2025/04/02 17:49:50 [notice] 1#1: worker process 30 exited with code 0
+2025/04/02 17:49:50 [notice] 1#1: worker process 31 exited with code 0
+2025/04/02 17:49:50 [notice] 1#1: worker process 32 exited with code 0
+2025/04/02 17:49:50 [notice] 1#1: exit

@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0  # Spécifier une version stable
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: "cindaa123."
+      MYSQL_DATABASE: achatdb
+    ports:
+      - "3307:3306"  # Expose le port 3307 pour MySQL
+    volumes:
+      - mysql-data:/var/lib/mysql # Persistance des données
+
+  backend:
+    image: achat-backend-sindachammem-4twin9
+    container_name: backend-container
+    ports:
+      - "8089:8089"  # Expose le port du backend
+    depends_on:
+      - mysql  # Assure que MySQL est démarré avant le backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/achatdb  # Connexion via le nom du service Docker
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: "cindaa123."  # Le mot de passe de MySQL
+    volumes:
+      - ./logs:/logs
+
+  frontend:
+    image: achat-frontend-sindachammem-4twin9  # Nom de l'image frontend que tu as construite
+    container_name: frontend-container
+    ports:
+      - "8082:80"  # Expose le port 80 pour accéder au frontend via Nginx
+    depends_on:
+      - backend 
+    volumes:
+      - ./logs/nginx:/var/log/nginx
+volumes:
+  mysql-data:
