@@ -46,6 +46,7 @@ public class ProduitRestController {
 	@DeleteMapping("/remove-produit/{produit-id}")
 	@ResponseBody
 	public void removeProduit(@PathVariable("produit-id") Long produitId) {
+
 		produitService.deleteProduit(produitId);
 	}
 
@@ -53,6 +54,7 @@ public class ProduitRestController {
 	@PutMapping("/modify-produit")
 	@ResponseBody
 	public Produit modifyProduit(@RequestBody Produit p) {
+
 		return produitService.updateProduit(p);
 	}
 
