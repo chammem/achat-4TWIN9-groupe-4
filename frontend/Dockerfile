@@ -5,7 +5,11 @@ FROM node:18 AS build
 WORKDIR /app
 
 # Copier package.json et package-lock.json pour installer les dépendances
+<<<<<<< HEAD
+COPY package.json package-lock.json ./
+=======
 COPY package.json package-lock.json ./ 
+>>>>>>> origin/master
 
 # Installer les dépendances, incluant Angular CLI globalement
 RUN npm install --legacy-peer-deps
@@ -28,5 +32,8 @@ EXPOSE 80
 
 # Commande pour démarrer Nginx
 CMD ["nginx", "-g", "daemon off;"]
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> origin/master
