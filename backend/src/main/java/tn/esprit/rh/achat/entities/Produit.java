@@ -57,6 +57,17 @@ public class Produit implements Serializable {
 	}
 
 
-	
+	@Override
+	public String toString() {
+		return "Produit{" +
+				"idProduit=" + idProduit +
+				", libelle=" + libelleProduit +
+				", prix=" + prix +
+				'}';
+	}
+
+	public Long getIdProduit() {
+		return idProduit;
+	}
 
 }
