@@ -65,6 +65,7 @@ node_modules/
 
 # dependencies
 /node_modules
+/volume
 
 # profiling files
 chrome-profiler-events*.json
