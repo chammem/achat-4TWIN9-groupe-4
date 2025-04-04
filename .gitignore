@@ -67,7 +67,7 @@ node_modules/
 /node_modules
 frontend/volume
 frontend/volume/
-
+frontend/volume/web/deploy/plugins/javascript/
 /volume
 
 # profiling files
