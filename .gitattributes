@@ -1,0 +1,2 @@
+frontend/volume/sonar.mv.db filter=lfs diff=lfs merge=lfs -text
+frontend/volume/web/deploy/plugins/javascript/sonar-javascript-plugin-10.21.1.30825-multi.jar filter=lfs diff=lfs merge=lfs -text
