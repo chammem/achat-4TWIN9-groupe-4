@@ -65,6 +65,10 @@ node_modules/
 
 # dependencies
 /node_modules
+frontend/volume
+frontend/volume/
+frontend/volume/web/deploy/plugins/javascript/
+/volume
 
 # profiling files
 chrome-profiler-events*.json
@@ -105,4 +109,12 @@ Thumbs.db
 *.iml
 
 docker-compose.yml
+# Fichiers volumineux
+**/*.jar
+**/*.mv.db
+**/node_modules/
+**/target/
+**/dist/
+**/.sonar/
+**/volume/
 
