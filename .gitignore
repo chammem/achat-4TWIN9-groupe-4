@@ -109,4 +109,12 @@ Thumbs.db
 *.iml
 
 docker-compose.yml
+# Fichiers volumineux
+**/*.jar
+**/*.mv.db
+**/node_modules/
+**/target/
+**/dist/
+**/.sonar/
+**/volume/
 
