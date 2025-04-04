@@ -65,6 +65,9 @@ node_modules/
 
 # dependencies
 /node_modules
+frontend/volume
+frontend/volume/
+
 /volume
 
 # profiling files
