@@ -2587,3 +2587,6 @@ Caused by: java.net.ConnectException: Connection refused
 2025-04-12 18:07:57 [http-nio-8089-exec-4] INFO  t.e.r.a.c.FactureRestController - 🎯 [Controller] getFactures() called...
 2025-04-12 18:07:57 [http-nio-8089-exec-4] INFO  t.e.r.a.services.FactureServiceImpl - 📦 [Service] Fetched 1 factures
 2025-04-12 18:07:57 [http-nio-8089-exec-4] INFO  t.e.r.a.c.FactureRestController - 📦 [Controller] Returned 1 factures
+2025-04-12 18:44:19 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-04-12 18:44:19 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2025-04-12 18:44:19 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
