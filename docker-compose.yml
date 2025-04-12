@@ -1,0 +1,43 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: "ahmed123."
+      MYSQL_DATABASE: achatdb
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  backend:
+    build:
+      context: ./backend
+    container_name: backend-container
+    depends_on:
+      - mysql
+    ports:
+      - "8089:8089"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/achatdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: "ahmed123."
+    command: >
+      sh -c "echo '🕒 Attente de MySQL...' && sleep 10 &&
+             java -jar achat.jar"
+    volumes:
+      - ./logs:/logs
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: frontend-container
+    ports:
+      - "8082:80"
+    depends_on:
+      - backend
+    volumes:
+      - ./logs/nginx:/var/log/nginx
+
+volumes:
+  mysql-data:

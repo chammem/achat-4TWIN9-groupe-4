@@ -26,91 +26,111 @@ public class FactureServiceImpl implements IFactureService {
 	FournisseurRepository fournisseurRepository;
 	@Autowired
 	ProduitRepository produitRepository;
-    @Autowired
-    ReglementServiceImpl reglementService;
-	
+	@Autowired
+	ReglementServiceImpl reglementService;
+
+
 	@Override
 	public List<Facture> retrieveAllFactures() {
+		log.trace("🔍 [Service] retrieveAllFactures() STARTED...");
 		List<Facture> factures = (List<Facture>) factureRepository.findAll();
-		for (Facture facture : factures) {
-			log.info(" facture : " + facture);
-		}
+		log.info("📦 [Service] Fetched {} factures", factures.size());
 		return factures;
 	}
 
-	
+
 	public Facture addFacture(Facture f) {
-		return factureRepository.save(f);
+		log.info("Adding new facture with preliminary ID: {}", f.getIdFacture());
+		Facture savedFacture = factureRepository.save(f);
+		log.info("Facture added with ID: {}", savedFacture.getIdFacture());
+		return savedFacture;
 	}
 
-	/*
-	 * calculer les montants remise et le montant total d'un détail facture
-	 * ainsi que les montants d'une facture
-	 */
 	private Facture addDetailsFacture(Facture f, Set<DetailFacture> detailsFacture) {
 		float montantFacture = 0;
 		float montantRemise = 0;
 		for (DetailFacture detail : detailsFacture) {
-			//Récuperer le produit 
-			Produit produit = produitRepository.findById(detail.getProduit().getIdProduit()).get();
-			//Calculer le montant total pour chaque détail Facture
+			Produit produit = produitRepository.findById(detail.getProduit().getIdProduit()).orElse(null);
+			if (produit == null) {
+				log.warn("Product with ID {} not found", detail.getProduit().getIdProduit());
+				continue;
+			}
 			float prixTotalDetail = detail.getQteCommandee() * produit.getPrix();
-			//Calculer le montant remise pour chaque détail Facture
 			float montantRemiseDetail = (prixTotalDetail * detail.getPourcentageRemise()) / 100;
 			float prixTotalDetailRemise = prixTotalDetail - montantRemiseDetail;
+
 			detail.setMontantRemise(montantRemiseDetail);
 			detail.setPrixTotalDetail(prixTotalDetailRemise);
-			//Calculer le montant total pour la facture
-			montantFacture = montantFacture + prixTotalDetailRemise;
-			//Calculer le montant remise pour la facture
-			montantRemise = montantRemise + montantRemiseDetail;
+
+			montantFacture += prixTotalDetailRemise;
+			montantRemise += montantRemiseDetail;
+
 			detailFactureRepository.save(detail);
+
+			log.debug("Processed detail - Product ID: {}, Remise: {}, Total: {}",
+					produit.getIdProduit(), montantRemiseDetail, prixTotalDetailRemise);
 		}
 		f.setMontantFacture(montantFacture);
 		f.setMontantRemise(montantRemise);
+		log.info("Facture totals - Montant: {}, Remise: {}", montantFacture, montantRemise);
 		return f;
 	}
 
 	@Override
 	public void cancelFacture(Long factureId) {
-		// Méthode 01
-		//Facture facture = factureRepository.findById(factureId).get();
+		log.warn("Cancelling facture with ID: {}", factureId);
 		Facture facture = factureRepository.findById(factureId).orElse(new Facture());
 		facture.setArchivee(true);
 		factureRepository.save(facture);
-		//Méthode 02 (Avec JPQL)
 		factureRepository.updateFacture(factureId);
 	}
 
 	@Override
 	public Facture retrieveFacture(Long factureId) {
-
+		log.info("Retrieving facture with ID: {}", factureId);
 		Facture facture = factureRepository.findById(factureId).orElse(null);
-		log.info("facture :" + facture);
+		log.debug("Facture retrieved: {}", facture);
 		return facture;
 	}
 
 	@Override
 	public List<Facture> getFacturesByFournisseur(Long idFournisseur) {
+		log.info("Getting factures for fournisseur with ID: {}", idFournisseur);
 		Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);
-		return (List<Facture>) fournisseur.getFactures();
+		if (fournisseur == null) {
+			log.warn("Fournisseur with ID {} not found", idFournisseur);
+			return null;
+		}
+		List<Facture> factures = (List<Facture>) fournisseur.getFactures();
+		log.info("Retrieved {} factures for fournisseur ID: {}", factures.size(), idFournisseur);
+		return factures;
 	}
 
 	@Override
 	public void assignOperateurToFacture(Long idOperateur, Long idFacture) {
+		log.info("Assigning operateur ID {} to facture ID {}", idOperateur, idFacture);
 		Facture facture = factureRepository.findById(idFacture).orElse(null);
 		Operateur operateur = operateurRepository.findById(idOperateur).orElse(null);
+		if (facture == null || operateur == null) {
+			log.error("Assignment failed: Facture or Operateur not found.");
+			return;
+		}
 		operateur.getFactures().add(facture);
 		operateurRepository.save(operateur);
+		log.info("Assignment completed.");
 	}
 
 	@Override
 	public float pourcentageRecouvrement(Date startDate, Date endDate) {
-		float totalFacturesEntreDeuxDates = factureRepository.getTotalFacturesEntreDeuxDates(startDate,endDate);
-		float totalRecouvrementEntreDeuxDates =reglementService.getChiffreAffaireEntreDeuxDate(startDate,endDate);
-		float pourcentage=(totalRecouvrementEntreDeuxDates/totalFacturesEntreDeuxDates)*100;
+		log.info("Calculating pourcentage de recouvrement from {} to {}", startDate, endDate);
+		float totalFactures = factureRepository.getTotalFacturesEntreDeuxDates(startDate, endDate);
+		float totalRecouvrement = reglementService.getChiffreAffaireEntreDeuxDate(startDate, endDate);
+		if (totalFactures == 0) {
+			log.warn("No factures found between {} and {}", startDate, endDate);
+			return 0;
+		}
+		float pourcentage = (totalRecouvrement / totalFactures) * 100;
+		log.info("Pourcentage de recouvrement: {}%", pourcentage);
 		return pourcentage;
 	}
-	
-
 }

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Created-By: Apache Maven 3.8.6
+Built-By: ahmedkacemjebari
+Build-Jdk: 17.0.14
+Implementation-Title: achat
+Implementation-Version: 1.0
+Implementation-Vendor-Id: tn.esprit.rh
+Implementation-URL: https://spring.io/projects/spring-boot/achat
+Main-Class: org.springframework.boot.loader.JarLauncher
+Start-Class: tn.esprit.rh.achat.AchatApplication
+Spring-Boot-Version: 2.5.3
+Spring-Boot-Classes: BOOT-INF/classes/
+Spring-Boot-Lib: BOOT-INF/lib/
+Spring-Boot-Classpath-Index: BOOT-INF/classpath.idx
+Spring-Boot-Layers-Index: BOOT-INF/layers.idx
+

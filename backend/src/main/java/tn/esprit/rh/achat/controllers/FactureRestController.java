@@ -1,6 +1,7 @@
 package tn.esprit.rh.achat.controllers;
 
 import io.swagger.annotations.Api;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,7 @@ import tn.esprit.rh.achat.services.IFactureService;
 import java.util.Date;
 import java.util.List;
 
-
+@Slf4j
 @RestController
 @Api(tags = "Gestion des factures")
 @RequestMapping("/facture")
@@ -24,7 +25,9 @@ public class FactureRestController {
     @GetMapping("/retrieve-all-factures")
     @ResponseBody
     public List<Facture> getFactures() {
+        log.info("🎯 [Controller] getFactures() called...");
         List<Facture> list = factureService.retrieveAllFactures();
+        log.info("📦 [Controller] Returned {} factures", list.size());
         return list;
     }
 
@@ -78,5 +81,14 @@ public class FactureRestController {
             return 0;
         }
     }
+    @GetMapping("/test-log")
+    public String testLog() {
+        log.info("✅ INFO log from /test-log");
+        log.warn("⚠️ WARN log from /test-log");
+        log.error("❌ ERROR log from /test-log");
+        log.debug("🐞 DEBUG log from /test-log");
+        return "Logs sent via @Slf4j!";
+    }
+
 
 }
