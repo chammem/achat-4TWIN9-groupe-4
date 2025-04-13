@@ -1,0 +1,6 @@
+projectKey=achat-frontend-ahmedkacem-4TWIN9-groupe-4
+serverUrl=http://localhost:9000
+serverVersion=25.4.0.105899
+dashboardUrl=http://localhost:9000/dashboard?id=achat-frontend-ahmedkacem-4TWIN9-groupe-4
+ceTaskId=be129f0d-2422-4769-beb1-52209a6b706b
+ceTaskUrl=http://localhost:9000/api/ce/task?id=be129f0d-2422-4769-beb1-52209a6b706b

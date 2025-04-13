@@ -1,11 +1,19 @@
-# ========== BACKEND (Spring Boot - Maven) ==========
+# Ignorer le fichier docker-compose.yml
+docker-compose.yml
+
+# Ignorer les fichiers Docker
+*.tar
+*.tar.gz
+
+# Pour le backend Spring Boot
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-# Spring Tool Suite (STS)
+
+### STS ###
 .apt_generated
 .classpath
 .factorypath
@@ -14,13 +22,13 @@ target/
 .springBeans
 .sts4-cache
 
-# IntelliJ IDEA
+### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
 
-# NetBeans
+### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -30,35 +38,59 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-# ========== FRONTEND (Angular - Node.js) ==========
-# Output
+### VS Code ###
+.vscode/
+
+# Node.js dependencies
+node_modules/
+
+# Angular build output
+/dist/
+/out-tsc/
+/e2e/
+
+# Docker files
+.docker/
+
+# Logs
+*.log
+
+# Pour le frontend Angular
+# compiled output
 /dist
 /tmp
 /out-tsc
+# Only exists if Bazel was run
 /bazel-out
 
-# Dependencies
+# dependencies
 /node_modules
+frontend/volume
+frontend/volume/
+frontend/volume/web/deploy/plugins/javascript/
+/volume
 
-# Profiling
+# profiling files
 chrome-profiler-events*.json
 
-# ========== IDEs & Editors ==========
-# VS Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# Other editors
+# IDEs and editors
+/.idea
+.project
+.classpath
 .c9/
 *.launch
 .settings/
 *.sublime-workspace
 
-# ========== Logs & Misc ==========
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 .history/*
+
+# misc
 /.sass-cache
 /connect.lock
 /coverage
@@ -68,6 +100,20 @@ yarn-error.log
 testem.log
 /typings
 
-# ========== System Files ==========
+# System Files
 .DS_Store
 Thumbs.db
+
+
+# Fichiers spécifiques à l'IDE
+*.iml
+
+docker-compose.yml
+# Fichiers volumineux
+**/*.jar
+**/*.mv.db
+**/node_modules/
+**/target/
+**/dist/
+**/.sonar/
+**/volume/
