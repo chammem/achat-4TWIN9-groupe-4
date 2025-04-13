@@ -11,7 +11,7 @@
 	<groupId>tn.esprit.rh</groupId>
 	<artifactId>achat</artifactId>
 	<version>1.0</version>
-	<name>achat</name>
+	<name>achat-backend-sindachammem-4TWIN9-groupe-4</name>
 	<description>Projet pour le module DevOps</description>
 	<properties>
 		<java.version>1.8</java.version>
@@ -63,14 +63,14 @@
 
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
 
 
 
@@ -87,6 +87,7 @@
 			<artifactId>logback-classic</artifactId>
 			<version>1.2.6</version>
 		</dependency>
+
 
 	</dependencies>
 
@@ -120,6 +121,37 @@
 				</configuration>
 			</plugin>
 
+					<!-- JaCoCo Plugin -->
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>0.8.11</version>
+						<executions>
+							<!-- Active l'agent JaCoCo pendant les tests -->
+							<execution>
+								<id>prepare-agent</id>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+
+							<!-- Génère le rapport après les tests -->
+							<execution>
+								<id>report</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>report</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+
+					<!-- (Optionnel) Plugin Surefire pour exécuter les tests -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>3.4.0</version>
+					</plugin>
 
 
 		</plugins>
