@@ -15,6 +15,11 @@ import { FactureComponent } from './facture/facture.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';  // Importer ngx-logger
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MetricsComponent } from './metrics/metrics.component';
+import { MetricsResolver } from './metrics.resolver';
+import { MetricsService } from './services/metrics.service';
+import { MetricsInterceptor } from './metrics.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     SecteurActiviteComponent,
     OperateurComponent,
     FactureComponent,
-    NavbarComponent
+    NavbarComponent,
+    MetricsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS,
+    useClass: MetricsInterceptor,
+    multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
