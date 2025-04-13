@@ -9,10 +9,6 @@ module.exports = function (config) {
         base: 'ChromeHeadless',
         flags: [
           '--no-sandbox',
-          '--disable-gpu',
-          '--disable-dev-shm-usage',
-          '--headless',
-          '--remote-debugging-port=9222'
         ]
       }
     },
@@ -51,7 +47,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadlessCustom'],
 
     
     restartOnFileChange: true
