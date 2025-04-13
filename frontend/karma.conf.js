@@ -3,6 +3,20 @@
 
 module.exports = function (config) {
   config.set({
+    browsers: ['ChromeHeadlessCustom'],
+    customLaunchers: {
+      ChromeHeadlessCustom: {
+        base: 'ChromeHeadless',
+        flags: [
+          '--no-sandbox',
+          '--disable-gpu',
+          '--disable-dev-shm-usage',
+          '--headless',
+          '--remote-debugging-port=9222'
+        ]
+      }
+    },
+    singleRun: true,
     basePath: '',
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
@@ -39,7 +53,7 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['ChromeHeadless'],
 
-    singleRun: false,
+    
     restartOnFileChange: true
   });
 };
