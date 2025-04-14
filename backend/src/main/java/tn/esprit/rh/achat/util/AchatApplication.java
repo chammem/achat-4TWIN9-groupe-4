@@ -1,4 +1,4 @@
-package tn.esprit.rh.achat;
+package tn.esprit.rh.achat.util;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
