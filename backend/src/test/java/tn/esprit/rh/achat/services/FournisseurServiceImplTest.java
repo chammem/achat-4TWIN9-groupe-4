@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import tn.esprit.rh.achat.entities.DetailFournisseur;
 import tn.esprit.rh.achat.entities.Fournisseur;
 import tn.esprit.rh.achat.repositories.DetailFournisseurRepository;
 import tn.esprit.rh.achat.repositories.FournisseurRepository;
@@ -17,7 +16,7 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class FournisseurServiceImplTest {
+class FournisseurServiceImplTest {
 
     @InjectMocks
     FournisseurServiceImpl fournisseurService;
@@ -35,12 +34,12 @@ public class FournisseurServiceImplTest {
     SecteurActiviteRepository secteurActiviteRepository;
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         MockitoAnnotations.openMocks(this);
     }
 
     @Test
-    public void testAddFournisseur() {
+     void testAddFournisseur() {
         // Arrange
         Fournisseur fournisseur = new Fournisseur();
         fournisseur.setLibelle("Test Fournisseur");

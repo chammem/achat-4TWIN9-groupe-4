@@ -1,11 +1,11 @@
 // src/app/core/services/metrics.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 @Injectable({
   providedIn: 'root'
 })
 export class MetricsService {
+  private pageViews = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -22,5 +22,15 @@ angular_http_request_duration_seconds{method="${method}",route="${route}"} ${dur
       body: metrics
     });
   }
-}
 
+  incrementPageViews() {
+    this.pageViews++;
+  }
+
+  async getMetrics(): Promise<string> {
+    return `
+# TYPE angular_page_views counter
+angular_page_views ${this.pageViews}
+`;
+  }
+}
