@@ -82,3 +82,8 @@ Thumbs.db
 
 # Fichiers spécifiques à l'IDE
 *.iml
+# === LOGS, DB & VOLUMES DOCKER ===
+logs/
+mysql-data/
+*.tar
+.env
