@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
-import { FormsModule } from '@angular/forms';
 import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -14,6 +13,13 @@ import { SecteurActiviteComponent } from './secteur-activite/secteur-activite.co
 import { OperateurComponent } from './operateur/operateur.component';
 import { FactureComponent } from './facture/facture.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';  // Importer ngx-logger
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MetricsComponent } from './metrics/metrics.component';
+import { MetricsResolver } from './metrics.resolver';
+import { MetricsService } from './services/metrics.service';
+import { MetricsInterceptor } from './metrics.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     SecteurActiviteComponent,
     OperateurComponent,
     FactureComponent,
-    NavbarComponent
+    NavbarComponent,
+    MetricsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,9 +40,18 @@ import { NavbarComponent } from './navbar/navbar.component';
     FormsModule,
     NgbModalModule,
     RouterModule,
-    NgbModule
+    NgbModule,
+    LoggerModule.forRoot({
+      level: NgxLoggerLevel.DEBUG,  // Niveau de log minimum
+      serverLogLevel: NgxLoggerLevel.ERROR, // Niveau pour les logs envoyés au serveur
+      disableConsoleLogging: false // S'assurer que les logs ne sont pas désactivés
+    }),
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS,
+    useClass: MetricsInterceptor,
+    multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

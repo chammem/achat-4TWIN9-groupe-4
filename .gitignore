@@ -1,9 +1,17 @@
+# Ignorer le fichier docker-compose.yml
+docker-compose.yml
+
+# Ignorer les fichiers Docker
+*.tar
+*.tar.gz
+
 # Pour le backend Spring Boot
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+
 
 ### STS ###
 .apt_generated
@@ -33,6 +41,19 @@ build/
 ### VS Code ###
 .vscode/
 
+# Node.js dependencies
+node_modules/
+
+# Angular build output
+/dist/
+/out-tsc/
+/e2e/
+
+# Docker files
+.docker/
+
+# Logs
+*.log
 
 # Pour le frontend Angular
 # compiled output
@@ -44,6 +65,10 @@ build/
 
 # dependencies
 /node_modules
+frontend/volume
+frontend/volume/
+frontend/volume/web/deploy/plugins/javascript/
+/volume
 
 # profiling files
 chrome-profiler-events*.json
@@ -87,3 +112,13 @@ logs/
 mysql-data/
 *.tar
 .env
+docker-compose.yml
+# Fichiers volumineux
+**/*.jar
+**/*.mv.db
+**/node_modules/
+**/target/
+**/dist/
+**/.sonar/
+**/volume/
+
