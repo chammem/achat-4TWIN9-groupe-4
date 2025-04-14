@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     tools {
-        maven 'M2_HOME'  // Doit correspondre au nom de l'installation Maven dans Jenkins
+        maven 'M2_HOME'  // Assurez-vous que cette installation Maven est configurée dans Jenkins
     }
     
     stages {
@@ -18,16 +18,42 @@ pipeline {
                     ]]
                 ])
                 
-                // Debug: Afficher la structure des fichiers
-                sh 'ls -la'
+                // Debug: Affiche le contenu du dossier backend
+                sh 'ls -la backend'
             }
         }
         
-        stage('Build') {
+        stage('Build Backend') {
             steps {
-                // Si le pom.xml est dans un sous-dossier, spécifiez-le avec -f
-                sh 'mvn -f pom.xml clean package'  // Ou 'mvn -f chemin/vers/pom.xml clean package'
+                dir('backend') {
+                    sh 'mvn clean package'
+                    // Si vous avez besoin de tests
+                    // sh 'mvn test'
+                }
             }
+        }
+        
+        // Ajoutez d'autres étapes si nécessaire
+        stage('Archive Artifacts') {
+            steps {
+                dir('backend') {
+                    archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+                }
+            }
+        }
+    }
+    
+    post {
+        always {
+            // Nettoyage ou notifications
+            echo 'Build completed - see reports for results'
+        }
+        success {
+            echo 'Build succeeded!'
+        }
+        failure {
+            echo 'Build failed!'
+            // mail to: 'team@example.com', subject: 'Build Failed', body: 'Please check the build at ${BUILD_URL}'
         }
     }
 }
