@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package tn.esprit.rh.achat.services;
 
 import tn.esprit.rh.achat.entities.CategorieProduit;
@@ -18,3 +19,25 @@ public interface ICategorieProduitService {
 	CategorieProduit retrieveCategorieProduit(Long id);
 
 }
+=======
+package tn.esprit.rh.achat.services;
+
+import tn.esprit.rh.achat.entities.CategorieProduit;
+
+import java.util.List;
+
+
+public interface ICategorieProduitService {
+
+	List<CategorieProduit> retrieveAllCategorieProduits();
+
+	CategorieProduit addCategorieProduit(CategorieProduit cp);
+
+	void deleteCategorieProduit(Long id);
+
+	CategorieProduit updateCategorieProduit(CategorieProduit cp);
+
+	CategorieProduit retrieveCategorieProduit(Long id);
+
+}
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643

@@ -31,6 +31,10 @@ chrome-profiler-events*.json
 .history/*
 
 # misc
+<<<<<<< HEAD
+=======
+/.angular/cache
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643
 /.sass-cache
 /connect.lock
 /coverage
@@ -43,3 +47,16 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
+=======
+# Logs
+logs/
+*.log
+
+# Docker volumes, images & artifacts
+*.tar
+docker-compose.override.yml
+
+# MySQL data volume
+mysql-data/
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643

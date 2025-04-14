@@ -23,6 +23,7 @@ import '@angular/localize/init';
  */
 
 /**
+<<<<<<< HEAD
  * IE11 requires the following for NgClass support on SVG elements
  */
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
@@ -35,6 +36,8 @@ import '@angular/localize/init';
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 
 /**
+=======
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643
  * By default, zone.js will patch all possible macroTask and DomEvents
  * user can disable parts of macroTask/DomEvents patch by setting following flags
  * because those flags need to be set before `zone.js` being loaded, and webpack

@@ -1,13 +1,22 @@
 {
   "name": "achat-frontend",
+<<<<<<< HEAD
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "export NODE_OPTIONS=--openssl-legacy-provider && ng serve",
+=======
+  "version": "1.0.0",
+  "private": false,
+  "scripts": {
+    "ng": "ng",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng serve",
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643
     "build": "export NODE_OPTIONS=--openssl-legacy-provider && ng build",
     "watch": "export NODE_OPTIONS=--openssl-legacy-provider && ng build --watch --configuration development",
     "test": "export NODE_OPTIONS=--openssl-legacy-provider && ng test"
   },
+<<<<<<< HEAD
   "private": true,
   "dependencies": {
     "@angular/animations": "~12.0.1",
@@ -22,13 +31,36 @@
     "@ng-bootstrap/ng-bootstrap": "^12.0.2",
     "@popperjs/core": "^2.10.2",
     "bootstrap": "^5.2.0",
+=======
+  "dependencies": {
+    "@angular/animations": "~13.4.0",
+    "@angular/common": "~13.4.0",
+    "@angular/compiler": "~13.4.0",
+    "@angular/core": "~13.4.0",
+    "@angular/forms": "~13.4.0",
+    "@angular/localize": "~13.4.0",
+    "@angular/platform-browser": "~13.4.0",
+    "@angular/platform-browser-dynamic": "~13.4.0",
+    "@angular/router": "~13.4.0",
+    "@ng-bootstrap/ng-bootstrap": "^12.0.2",
+    "@popperjs/core": "^2.10.2",
+    "bootstrap": "^5.2.0",
+    "ngx-logger": "^5.0.12",
+    "prom-client": "^15.1.3",
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643
     "rxjs": "~6.6.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@angular-devkit/build-angular": "^12.0.5",
     "@angular/cli": "~12.0.1",
     "@angular/compiler-cli": "~12.0.1",
+=======
+    "@angular-devkit/build-angular": "^13.3.11",
+    "@angular/cli": "~13.3.11",
+    "@angular/compiler-cli": "~13.4.0",
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.7.0",
@@ -39,5 +71,11 @@
     "karma-jasmine-html-reporter": "^1.5.0",
     "tslib": "^2.3.1",
     "typescript": "~4.2.3"
+<<<<<<< HEAD
+=======
+  },
+  "publishConfig": {
+    "registry": "http://localhost:8081/repository/achat-frontend-sindachammem-4TWIN9-groupe-4/"
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643
   }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package tn.esprit.rh.achat.services;
 
 import tn.esprit.rh.achat.entities.Fournisseur;
@@ -19,3 +20,26 @@ public interface IFournisseurService {
 	void assignSecteurActiviteToFournisseur(Long idSecteurActivite, Long idFournisseur);
 
 }
+=======
+package tn.esprit.rh.achat.services;
+
+import tn.esprit.rh.achat.entities.Fournisseur;
+
+import java.util.List;
+
+public interface IFournisseurService {
+
+	List<Fournisseur> retrieveAllFournisseurs();
+
+	Fournisseur addFournisseur(Fournisseur f);
+
+	void deleteFournisseur(Long id);
+
+	Fournisseur updateFournisseur(Fournisseur f);
+
+	Fournisseur retrieveFournisseur(Long id);
+	
+	void assignSecteurActiviteToFournisseur(Long idSecteurActivite, Long idFournisseur);
+
+}
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643

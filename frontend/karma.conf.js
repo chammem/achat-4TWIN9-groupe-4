@@ -13,12 +13,16 @@ module.exports = function (config) {
       require('@angular-devkit/build-angular/plugins/karma')
     ],
     client: {
+<<<<<<< HEAD
       jasmine: {
         // you can add configuration options for Jasmine here
         // the possible options are listed at https://jasmine.github.io/api/edge/Configuration.html
         // for example, you can disable the random execution with `random: false`
         // or set a specific seed with `seed: 4321`
       },
+=======
+      jasmine: {},
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     jasmineHtmlReporter: {
@@ -29,15 +33,33 @@ module.exports = function (config) {
       subdir: '.',
       reporters: [
         { type: 'html' },
+<<<<<<< HEAD
         { type: 'text-summary' }
       ]
     },
     reporters: ['progress', 'kjhtml'],
+=======
+        { type: 'text-summary' },
+        { type: 'lcov' }
+      ]
+    },
+    reporters: ['progress', 'kjhtml', 'coverage'],
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
+<<<<<<< HEAD
     browsers: ['Chrome'],
+=======
+    browsers: ['ChromeHeadlessNoSandbox'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-gpu']
+      }
+    },
+>>>>>>> df2a6f5967fa7af69cab542e13d3a28c60b52643
     singleRun: false,
     restartOnFileChange: true
   });
