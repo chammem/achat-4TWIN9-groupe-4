@@ -65,6 +65,10 @@ node_modules/
 
 # dependencies
 /node_modules
+frontend/volume
+frontend/volume/
+frontend/volume/web/deploy/plugins/javascript/
+/volume
 
 # profiling files
 chrome-profiler-events*.json
@@ -103,8 +107,21 @@ Thumbs.db
 
 # Fichiers spécifiques à l'IDE
 *.iml
-
+# === LOGS, DB & VOLUMES DOCKER ===
+logs/
+mysql-data/
+*.tar
+.env
 docker-compose.yml
+# Fichiers volumineux
+**/*.jar
+**/*.mv.db
+**/node_modules/
+**/target/
+**/dist/
+**/.sonar/
+**/volume/
+logs/
 
 frontend/volume/README.txt
 frontend/volume

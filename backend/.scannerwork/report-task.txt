@@ -1,0 +1,6 @@
+projectKey=achat-backend-sindachammem-4TWIN9-4
+serverUrl=http://localhost:9000
+serverVersion=25.3.0.104237
+dashboardUrl=http://localhost:9000/dashboard?id=achat-backend-sindachammem-4TWIN9-4
+ceTaskId=638a2044-6340-48fd-976d-3a4d12c3afa3
+ceTaskUrl=http://localhost:9000/api/ce/task?id=638a2044-6340-48fd-976d-3a4d12c3afa3
