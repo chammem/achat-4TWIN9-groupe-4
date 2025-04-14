@@ -121,4 +121,5 @@ docker-compose.yml
 **/dist/
 **/.sonar/
 **/volume/
+logs/
 
