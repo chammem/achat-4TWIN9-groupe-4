@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'spring-boot'
+    metrics_path: '/SpringMVC/actuator/prometheus'
+    static_configs:
+      - targets: ['localhost:8089']
+    scheme: http
+    scrape_interval: 5s
+    scrape_timeout: 5s
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+        replacement: 'achat-backend'
+
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'pushgateway'
+    static_configs:
+      - targets: ['pushgateway:9091']
+
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['localhost:9113']
