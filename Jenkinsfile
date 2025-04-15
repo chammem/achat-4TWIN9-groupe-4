@@ -3,7 +3,7 @@ pipeline {
     
     tools {
         maven 'M2_HOME'
-        jdk 'jdk17' // Assurez-vous d'utiliser Java 17 si nécessaire
+        jdk 'jdk17'
     }
     
     stages {
@@ -19,11 +19,15 @@ pipeline {
                     ]]
                 ])
                 
-                // Vérification du POM avant le build
+                // Vérification des conflits de fusion
                 sh '''
                     cd backend
                     if grep -q '<<<<<<<' pom.xml; then
                         echo "ERROR: pom.xml contains merge conflicts!"
+                        exit 1
+                    fi
+                    if grep -r '<<<<<<<' src/main/java; then
+                        echo "ERROR: Java files contain merge conflicts!"
                         exit 1
                     fi
                     xmllint --noout pom.xml || exit 1
@@ -34,7 +38,12 @@ pipeline {
         stage('Build Backend') {
             steps {
                 dir('backend') {
-                    sh 'mvn clean package'
+                    sh '''
+                        java -version
+                        # Validate Java syntax
+                        find src/main/java -name "*.java" -exec javac -cp "target/classes" {} \\;
+                        mvn clean package
+                    '''
                 }
             }
         }
@@ -43,7 +52,7 @@ pipeline {
             steps {
                 dir('backend') {
                     archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-                    junit 'target/surefire-reports/*.xml' // Archive les résultats des tests
+                    junit 'target/surefire-reports/*.xml'
                 }
             }
         }
@@ -51,14 +60,11 @@ pipeline {
     
     post {
         always {
-            // Archive le POM pour inspection
             archiveArtifacts artifacts: 'backend/pom.xml', fingerprint: true
-            
-            // Nettoyage
             cleanWs()
         }
         failure {
-            echo "Build failed! Check the POM file for merge conflicts."
+            echo "Build failed! Check the POM file and Java sources for issues."
             // mail to: 'team@example.com', subject: 'Build Failed', body: 'Please check the build at ${BUILD_URL}'
         }
     }
