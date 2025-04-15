@@ -93,9 +93,8 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              { "glob": "metrics-server.js", "input": "./", "output": "./" }
-            ],
+              "src/assets"
+                        ],
             "styles": [
               "src/styles.css"
             ],

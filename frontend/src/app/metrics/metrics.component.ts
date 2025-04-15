@@ -11,11 +11,13 @@ import { ActivatedRoute } from '@angular/router';
 export class MetricsComponent implements OnInit {
   metricsData!: string;
 
-  constructor(private readonly route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.data.subscribe(data => {
-      this.metricsData = data.metricsData;
+      const routeData = data as { metricsData: string };
+      this.metricsData = routeData.metricsData;
     });
   }
+  
 }
