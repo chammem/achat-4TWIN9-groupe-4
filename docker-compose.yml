@@ -56,7 +56,7 @@ services:
     depends_on:
       - backend 
     volumes:
-      - ./logs/nginx:/var/log/nginx
+      - ./logs/nginx2:/var/log/nginx
     networks:
       - monitoring
 
