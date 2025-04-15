@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
-import { NgbModal, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {  NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { StockComponent } from './stock/stock.component';
@@ -16,10 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';  // Importer ngx-logger
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MetricsComponent } from './metrics/metrics.component';
-import { MetricsResolver } from './metrics.resolver';
-import { MetricsService } from './services/metrics.service';
 import { MetricsInterceptor } from './metrics.interceptor';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [

@@ -34,7 +34,6 @@ COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copie du dossier contenant metrics-server.js
-COPY metrics-server /metrics-server
 
 # Ports exposés
 EXPOSE 80 9091

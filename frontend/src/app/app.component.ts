@@ -8,8 +8,8 @@ import { environment } from '../environments/environment.prod';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private metrics: MetricsService) {
-    // Exemple : incrémenter les vues de page
+  constructor(private readonly metrics: MetricsService) {
+  // Exemple : incrémenter les vues de page
     this.metrics.incrementPageViews();
 
     // Générer le fichier de métriques (toutes les 15s)

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MetricsService } from '../services/metrics.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class MetricsComponent implements OnInit {
   metricsData!: string;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private readonly route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.data.subscribe(data => {

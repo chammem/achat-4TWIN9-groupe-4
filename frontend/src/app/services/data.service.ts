@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class DataService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   getData(): Observable<any> {
     return this.http.get('http://backend:8089/SpringMVC/retrieve-all-produits');

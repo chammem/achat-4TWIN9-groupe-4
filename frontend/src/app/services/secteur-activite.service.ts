@@ -9,7 +9,7 @@ import { SecteurActivite } from '../shared/Model/Secteur-activite';
 export class SecteurActiviteService {
   readonly API_URL = 'http://localhost:8089/SpringMVC/secteurActivite';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private readonly httpClient: HttpClient) {}
 
   getAllSecteurActivites(): Observable<SecteurActivite[]> {
     return this.httpClient.get<SecteurActivite[]>(`${this.API_URL}/retrieve-all-secteurActivite`);

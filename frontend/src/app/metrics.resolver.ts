@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class MetricsResolver implements Resolve<string> {
-  constructor(private metricsService: MetricsService) {}
+  constructor(private readonly metricsService: MetricsService) {}
 
   resolve(): Observable<string> | Promise<string> | string {
     return this.metricsService.getMetrics();

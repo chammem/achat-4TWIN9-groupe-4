@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class MetricsService {
   private pageViews = 0;
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   sendHttpRequestMetric(method: string, route: string, duration: number) {
     const metrics = `
