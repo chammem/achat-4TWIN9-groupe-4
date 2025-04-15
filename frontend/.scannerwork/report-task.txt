@@ -2,5 +2,5 @@ projectKey=achat-frontend-sindachammem-4twin9
 serverUrl=http://localhost:9000
 serverVersion=25.3.0.104237
 dashboardUrl=http://localhost:9000/dashboard?id=achat-frontend-sindachammem-4twin9
-ceTaskId=240585f6-502d-4639-b1ec-4858f9c89e61
-ceTaskUrl=http://localhost:9000/api/ce/task?id=240585f6-502d-4639-b1ec-4858f9c89e61
+ceTaskId=7a445550-930e-4d99-a65c-db48f44f47cb
+ceTaskUrl=http://localhost:9000/api/ce/task?id=7a445550-930e-4d99-a65c-db48f44f47cb
