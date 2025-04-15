@@ -33,11 +33,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
 			<version>3.7.7</version>
@@ -130,6 +125,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+					<mainClass>tn.esprit.rh.achat.AchatApplication</mainClass> <!-- ou celle que tu veux lancer -->
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -170,6 +166,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.4.0</version>
 			</plugin>
+
 
 
 		</plugins>
